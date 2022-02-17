@@ -1,7 +1,7 @@
 import React from "react"
 import Card from "../Card/Card";
 
-function Cardlist({megas}) {
+const Cardlist = ({megas}) => {
   if (!true) throw new Error("Error Boundary test");
   
   return (
