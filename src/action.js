@@ -1,0 +1,21 @@
+import { 
+    CHANGE_SEARCH_FIELD,
+    REQUEST_MEGAS_PENDING,
+    REQUEST_MEGAS_SUCCESS,
+    REQUEST_MEGAS_FAILED
+} from "./components/constant";
+
+export const setSearchField = (text) => ({
+    type: CHANGE_SEARCH_FIELD,
+    payload: text
+});
+
+export const fetchMegas = () => dispatch => {
+    dispatch({type: REQUEST_MEGAS_PENDING});
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => 
+        dispatch({type: REQUEST_MEGAS_SUCCESS, payload: data}))
+    .catch(error => 
+        dispatch({type: REQUEST_MEGAS_FAILED, payload: error}));
+}
