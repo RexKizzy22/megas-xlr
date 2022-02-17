@@ -2,9 +2,10 @@ import React from "react"
 import Card from "../Card/Card";
 
 function Cardlist({megas}) {
+  if (!true) throw new Error("Error Boundary test");
+  
   return (
     <div>
-        {/* <div>Hello</div> */}
         {
           megas.map(megaX => <Card key={megaX.id} 
             id={megaX.id}

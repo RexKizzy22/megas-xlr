@@ -1,6 +1,8 @@
 import { Component } from "react";
 import Cardlist from "../Cardlist/Cardlist";
 import Searchbox from "../Searchbox/Searchbox";
+import Scroll from "../Scroll/Scroll";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 import "tachyons";
 import "./App.css";
@@ -33,11 +35,15 @@ class App extends Component {
   
     return (
       <div className="tc">
-        <h1>Megas-XLR</h1>
+        <h1 className="f1">Megas-XLR</h1>
         <Searchbox onSearch={this.onSearchChange} />
-        <Cardlist 
-          megas={filteredMegas} 
-        />
+        <Scroll>
+          <ErrorBoundary>
+            <Cardlist 
+              megas={filteredMegas} 
+            />  
+          </ErrorBoundary>
+        </Scroll>
       </div>
     );
   }
